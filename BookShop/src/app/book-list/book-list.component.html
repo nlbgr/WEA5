@@ -1,5 +1,5 @@
 <div class="ui middle aligned selection divided list">
     @for (book of books; track book.id) {
-        <a class="wea5-book-list-item item" [book]="book" (click)="showDetails(book)"></a>
+        <a class="wea5-book-list-item item" [book]="book" [routerLink]="book.id"></a>
     }
 </div>

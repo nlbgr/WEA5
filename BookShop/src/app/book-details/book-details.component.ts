@@ -1,5 +1,7 @@
-import { Component, input, output } from '@angular/core';
+import { BookStoreService } from './../shared/book-store.service';
+import { Component, signal } from '@angular/core';
 import { Book } from '../shared/book';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'wea5-book-details',
@@ -9,10 +11,21 @@ import { Book } from '../shared/book';
   styles: ``
 })
 export class BookDetailsComponent {
-  book = input.required<Book>();
-  showListEvent = output<void>();
+  //book: Book = new Book();
+  book = signal(new Book())
+
+  constructor(
+    private route: ActivatedRoute,
+    private BookStoreService: BookStoreService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    const params = this.route.snapshot.params;
+    this.book.set(this.BookStoreService.getBookById(params['id']));
+  }
 
   showBookList() {
-    this.showListEvent.emit();
+    this.router.navigateByUrl('/books');
   }
 }

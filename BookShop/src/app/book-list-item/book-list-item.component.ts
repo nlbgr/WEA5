@@ -9,7 +9,7 @@ import { Book } from '../shared/book';
   styles: ``
 })
 export class BookListItemComponent {
-  //@Input() book: Book = new Book(); // without signal
+  //book: Book = new Book(); // without signal
   book = input.required<Book>(); // with signal ( signal notation is required in html file)
 
 }

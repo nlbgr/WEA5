@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { BookListComponent } from "./book-list/book-list.component";
 import { Book } from './shared/book';
 import { BookDetailsComponent } from './book-details/book-details.component';
@@ -7,7 +7,7 @@ import { BookDetailsComponent } from './book-details/book-details.component';
 @Component({
   selector: 'wea5-root',
   standalone: true,
-  imports: [RouterOutlet, BookListComponent, BookDetailsComponent],
+  imports: [RouterModule],
   templateUrl: './app.component.html',
   styles: [],
 })
