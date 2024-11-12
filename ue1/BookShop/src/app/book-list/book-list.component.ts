@@ -18,6 +18,6 @@ export class BookListComponent {
   constructor(private bookStoreService: BookStoreService) { }
 
   ngOnInit() {
-    this.books = this.bookStoreService.getAll();
+    this.bookStoreService.getAll().subscribe(res => this.books = res);
   }
 }

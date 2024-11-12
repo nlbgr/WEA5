@@ -22,7 +22,7 @@ export class BookDetailsComponent {
 
   ngOnInit() {
     const params = this.route.snapshot.params;
-    this.book.set(this.BookStoreService.getBookById(params['id']));
+    this.BookStoreService.getBookById(params['id']).subscribe(res => this.book.set(res));
   }
 
   showBookList() {
