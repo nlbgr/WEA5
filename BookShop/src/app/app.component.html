@@ -1,0 +1,8 @@
+@if (listOn) {
+    <wea5-book-list (showDetailsEvent)="showDetails($event)"></wea5-book-list>
+} 
+@if (detailsOn) {
+    <wea5-book-details [book]="book" (showListEvent)="showList()"></wea5-book-details>
+}
+
+<router-outlet />
